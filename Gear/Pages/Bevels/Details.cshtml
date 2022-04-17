@@ -1,0 +1,117 @@
+﻿@page
+@model Gear.Pages.Bevels.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Коническая передача</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-10 table-info">
+                Наименование редуктора
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Name)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Число зубьев ведущей шестерни
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Z1)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Число зубьев ведомой шестерни
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Z2)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Модуль, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Mt)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Число зубьев плоского колеса
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Zc)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Внешнее конусное расстояние, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Re)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Ширина зубчатого венца, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.B)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Средний окружной модуль, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Mm)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Среднее конусное расстояние, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Rm)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Средний делительный диаметр ведущей шестерни, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Dm1)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Средний делительный диаметр ведомой шестерни, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Dm2)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Угол делительного конуса, рад.
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Delta1)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Внешний делительный диаметр ведущей шестерни, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.De1)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Внешний делительный диаметр ведомой шестерни, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.De2)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Внешний диаметр вершин зубьев ведущей шестерни, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Dae1)
+            </dd>
+            <dt class="col-sm-10 table-info">
+                Внешний диаметр вершин зубьев ведомой шестерни, мм
+            </dt>
+            <dd class="col-sm-5">
+                @Html.DisplayFor(model => model.Bevel.Dae2)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6 col-md-offset-2 mt-1">
+        <img class="d-block w-100 h-50" src="~/images/BevelMech.png" alt="Схема зацепления" />
+    </div>
+</div>
+<div>
+    <a type="button" class="btn btn-primary" asp-page="./Index">Назад</a>
+</div>

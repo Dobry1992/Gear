@@ -1,0 +1,43 @@
+﻿@page
+@model Gear.Pages.Bevels.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Конические передачи</h1>
+<p>
+    <a class="btn btn-primary m-1" asp-page="Create">Создать передачу</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-info">
+                <th scope="col">Наименование редуктора</th>
+                <th scope="col">Модуль зацепления, мм</th>
+                <th scope="col">Ширина зубчатого венца, мм</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Bevel)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.B)
+                    </td>
+                    <td>
+                        <a class="btn btn-info mb-1" asp-page="./Details" asp-route-id="@item.ID">Детали</a>
+                        <a class="btn btn-danger mb-1" asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,24 @@
+﻿@page
+@model Gear.Pages.Admin.PolicyUserModel
+@{
+    ViewData["Title"] = "Policy User";
+}
+
+<h1>Назначить роль пользователю <span class="text-danger">@Model.User.UserName</span></h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                @*<input asp-for="RName" class="form-control" />*@
+                <select asp-for="RName" class="form-control">
+                    @foreach (var item in Model.RoleName)
+                    {
+                        <option value="@item.NormalizedName.ToString()">@item.Name.ToString()</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,95 @@
+﻿@page
+@model Gear.Pages.Bevels.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Расчёт конической передачи</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Bevel.Name" class="control-label">Наименование редуктора</label>
+                <input asp-for="Bevel.Name" class="form-control" />
+                <span asp-validation-for="Bevel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bevel.Z1" class="control-label">Количество зубьев ведущей шестерни</label>
+                <input asp-for="Bevel.Z1" class="form-control" />
+                <span asp-validation-for="Bevel.Z1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bevel.Z2" class="control-label">Количество зубьев ведомой шестерни</label>
+                <input asp-for="Bevel.Z2" class="form-control" />
+                <span asp-validation-for="Bevel.Z2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bevel.Mt" class="control-label">Внешний окружной модуль</label>
+                <select asp-for="Bevel.Mt" class="form-control">
+                    <option value="0.5">0.5</option>
+                    <option value="0.55">0.55</option>
+                    <option value="0.6">0.6</option>
+                    <option value="0.7">0.7</option>
+                    <option value="0.8">0.8</option>
+                    <option value="0.9">0.9</option>
+                    <option value="1">1</option>
+                    <option value="1.125">1.125</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.375">1.375</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.75">1.75</option>
+                    <option value="2">2</option>
+                    <option value="2.25">2.25</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3">3</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4">4</option>
+                    <option value="4.5">4.5</option>
+                    <option value="5">5</option>
+                    <option value="5.5">5.5</option>
+                    <option value="6">6</option>
+                </select>
+                <span asp-validation-for="Bevel.Mt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+                <a type="button" class="btn btn-primary" asp-page="Index">Назад</a>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-6 col-md-offset-2 m-1">
+        <img class="d-block w-100" src="~/images/SchemaBevel.png" alt="Схема зацепления" />
+        <p>
+            Основополагающим документом, устанавливающим применяемые в науке, технике и производстве термины, определения и 
+            обозначения понятий, относящихся к геометрии и кинематике конических зубчатых передач с постоянным передаточным 
+            отношением, является ГОСТ 19325-73.
+        </p>
+        <p>
+            Число зубьев плоского колеса zc = (z1^2 + z2^2)^(0.5)<br />
+            Внешнее конусное расстояние Re = 0.5·mt·zc<br />
+            Ширина зубчатого венца b = 0.3·Re<br />
+            Среднее конусное расстояние Rm = Re - 0.5·b<br />
+            Средний окружной модуль mm = mt·Rm/Re<br />
+            Средний делительный диаметр ведущей шестерни dm1 = mm·z1<br />
+            Средний делительный диаметр ведомой шестерни dm2 = mm·z2<br />
+            Угол делительного конуса δ1 = arctg(z1/z2)<br />
+            Внешний делительный диаметр ведущей шестерни de1 = mt·z1<br />
+            Внешний делительный диаметр ведомой шестерни de2 = mt·z2<br />
+            Внешний диаметр вершин зубьев ведущей шестерни dae1 = de1 + 2mt·cosδ1<br />
+            Внешний диаметр вершин зубьев ведомой шестерни dae2  = de2 + 2mt·cos(90 - δ1)<br />
+            <hr />
+            где:<br />
+            z1 - количество зубьев ведущей шестерни<br />
+            z2 - количесвто зубьев ведомой шестерни<br />
+            mt - средний окружной модуль<br />
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

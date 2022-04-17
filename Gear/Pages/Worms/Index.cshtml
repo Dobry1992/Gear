@@ -1,0 +1,43 @@
+﻿@page
+@model Gear.Pages.Worms.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Червячные передачи</h1>
+<p>
+    <a class="btn btn-primary m-1" asp-page="Create">Создать передачу</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-info">
+                <th scope="col">Наименование редуктора</th>
+                <th scope="col">Модуль зацепления, мм</th>
+                <th scope="col">Межосевое расстояние, мм</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Worm)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.M)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aw)
+                    </td>
+                    <td>
+                        <a class="btn btn-info mb-1" asp-page="./Details" asp-route-id="@item.ID">Детали</a>
+                        <a class="btn btn-danger mb-1" asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

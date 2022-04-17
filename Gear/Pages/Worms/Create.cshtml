@@ -1,0 +1,128 @@
+﻿@page
+@model Gear.Pages.Worms.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Расчёт червячной передачи</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Worm.Name" class="control-label">Наименование редуктора</label>
+                <input asp-for="Worm.Name" class="form-control" />
+                <span asp-validation-for="Worm.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.M" class="control-label">Модуль, мм</label>
+                <select asp-for="Worm.M" class="form-control">
+                    <option value="1">1</option>
+                    <option value="1.25">1.25</option>
+                    <option value="1.5">1.5</option>
+                    <option value="1.6">1.6</option>
+                    <option value="2">2</option>
+                    <option value="2.5">2.5</option>
+                    <option value="3">3</option>
+                    <option value="3.15">3.15</option>
+                    <option value="3.15">3.5</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+                <span asp-validation-for="Worm.M" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.Aw" class="control-label">Межосевое расстояние, мм</label>
+                <input asp-for="Worm.Aw" class="form-control" />
+                <span asp-validation-for="Worm.Aw" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.Z1" class="control-label">Число заходов червяка</label>
+                <select asp-for="Worm.Z1" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <span asp-validation-for="Worm.Z1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.Z2" class="control-label">Число зубьев червячного колеса</label>
+                <input asp-for="Worm.Z2" class="form-control" />
+                <span asp-validation-for="Worm.Z2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.Q" class="control-label">Коэффициент диаметра червяка</label>
+                <select asp-for="Worm.Q" class="form-control">
+                    <option value="6.3">6.3</option>
+                    <option value="7.1">7.1</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11.2">11.2</option>
+                    <option value="12.5">12.5</option>
+                    <option value="14">14</option>
+                    <option value="16">16</option>
+                    <option value="18">18</option>
+                    <option value="20">20</option>
+                </select>
+                <span asp-validation-for="Worm.Q" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.WormName" class="control-label">Вид червяка</label>
+                <select asp-for="Worm.WormName" class="form-control">
+                    <option value="Архимедов">Архимедов</option>
+                    <option value="Эвольвентный">Эвольвентный</option>
+                    <option value="Прямолинейный">Прямолинейный</option>
+                    <option value="Образованный конусом">Образованный конусом</option>
+                    <option value="Образованный тором">Образованный тором</option>
+                </select>
+                <span asp-validation-for="Worm.WormName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.B1" class="control-label">Длина нарезной части червяка</label>
+                <input asp-for="Worm.B1" class="form-control" />
+                <span asp-validation-for="Worm.B1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Worm.B2" class="control-label">Ширина венца колеса</label>
+                <input asp-for="Worm.B2" class="form-control" />
+                <span asp-validation-for="Worm.B2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-page="Index">Назад</a>
+            </div>
+
+        </form>
+    </div>
+    <div class="col-md-6 col-md-offset-2 m-1">
+        <img class="d-block w-100" src="~/images/SchemaWorm.png" alt="Схема зацепления" />
+        <p>
+            Червя́чная переда́ча (зубчато-винтовая передача) — механическая передача, осуществляющаяся зацеплением червяка
+            и сопряжённого с ним червячного колеса (для преобразования угловой скорости и усилия вращения). Расчёт передачи регламентируется
+            ГОСТ 19650-74.
+        </p>
+        <p>
+            Делительный диаметр червяка d1 = m · q<br />
+            Делительный диаметр червячного колеса d2 = m · z2<br />
+            Делительный угол подъёма γ = arctg(z1/q)<br />
+            Диаметр вершин витков червяка da1 = d1 + 2 · m<br />
+            Диаметр вершин зубьев зубчатого колеса da2 = d2 + 2 · m<br />
+            Наибольший диаметр червячного колеса dam2 = da2 + 6  · m/(z1+2)<br />
+            <hr />
+            где:<br />
+            m - модуль зубчатого зацепления;<br />
+            q - коэффициент диаметра червяка;<br />
+            z1 - число заходов червяка;<br />
+            z2 - число зубьев червячного колеса.<br />
+        </p>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

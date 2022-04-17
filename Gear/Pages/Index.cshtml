@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Gear";
+}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active bg-primary"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1" class="bg-primary"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2" class="bg-primary"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="~/images/Spur.jpg" class="d-block w-100" alt="Цилиндрическая передача">
+            <div class="carousel-caption d-md-block p-2">
+                <h5>Цилиндрическая передача</h5>
+                <p>Передаёт вращательное движение между валами, расположенными на параллельных осях.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/Bevel.jpg" class="d-block w-100" alt="Коническая передача">
+            <div class="carousel-caption d-md-block p-2">
+                <h5>Коническая передача</h5>
+                <p>Применяется для передачи мощности вращением под углом, при условии неподвижности валов.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="~/images/Worm.jpg" class="d-block w-100" alt="Червячная передача">
+            <div class="carousel-caption d-md-block p-2">
+                <h5>Червячная передача</h5>
+                <p>Предназначена для существенного увеличения крутящего момента.</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Предыдущий</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Следующий</span>
+    </a>
+</div>
+
+<script>
+    $('.carousel').carousel({
+        interval: 2000
+    });
+</script>
