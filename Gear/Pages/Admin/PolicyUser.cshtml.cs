@@ -27,17 +27,18 @@ namespace Gear.Pages.Admin
         public IList<IdentityRole> RoleName { get; set; }
         [BindProperty]
         public string RName { get; set; }
+        public IList<string> UserRole { get; set; }
+        public IList<string> UserRoleDelete { get; set; }
         public async Task<IActionResult> OnGetAsync(string? id)
         {
             if(id == string.Empty)
             {
                 return NotFound();
             }
-
             RoleName = await _context.Roles.ToListAsync();
             User = await _context.Users.FirstOrDefaultAsync(m => m.Id == id);
-
-            if(User == null)
+            UserRole = await _userManager.GetRolesAsync(User);
+            if (User == null)
             {
                 return NotFound();
             }
@@ -55,7 +56,9 @@ namespace Gear.Pages.Admin
 
             if(User != null)
             {
-                await _userManager.AddToRoleAsync(User, RName);
+                UserRoleDelete = await _userManager.GetRolesAsync(User);
+                await _userManager.RemoveFromRolesAsync(User, UserRoleDelete);
+                await _userManager.AddToRoleAsync(User, RName.ToString());
             }
             return RedirectToPage("./Index");
         }
