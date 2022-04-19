@@ -27,7 +27,14 @@ namespace Gear.Pages.Spurs
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if(Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) > 1 || Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) < -1)
+
+
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            if (Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) > 1 || Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) < -1)
             {
                 return Content("Передача с заданными параметрами невозможна!"); // условие
             }
@@ -42,11 +49,6 @@ namespace Gear.Pages.Spurs
                 Spur.Df2 = Spur.D2 - 2 * (0.25 + Spur.Mn); // диаметр впадин зубьев колеса
                 Spur.Sc = Math.Round((((Math.PI / 2) * Math.Cos(0.35) * Math.Cos(0.35)) * Spur.Mn), 2); // постоянная хорда
                 Spur.Hc = Math.Round((0.5 * (2 * Spur.Mn - Spur.Sc) * Math.Tan(0.35)), 2); // высота до постоянной хорды
-            }
-
-            if (!ModelState.IsValid)
-            {
-                return Page();
             }
 
             _context.Spur.Add(Spur);

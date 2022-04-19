@@ -27,6 +27,11 @@ namespace Gear.Pages.Bevels
 
         public async Task<IActionResult> OnPostAsync()
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
             Bevel.Zc = Math.Round((double)Math.Sqrt(Bevel.Z1*Bevel.Z1 + Bevel.Z2*Bevel.Z2), 2); // Число зубьев плоского колеса
             Bevel.Re = Math.Round((0.5*Bevel.Mt*Bevel.Zc), 2); // Внешнее конусное расстояние
             Bevel.B = Math.Round((0.3*Bevel.Re), 2); // Ширина зубчатого венца
@@ -40,11 +45,6 @@ namespace Gear.Pages.Bevels
             Bevel.De2 = Math.Round((Bevel.Mt * Bevel.Z2), 2); // Внешний делительный диаметр ведомой шестерни
             Bevel.Dae1 = Math.Round((Bevel.De1 + 2*Bevel.Mt*Math.Cos(Bevel.Delta1)), 2); // Внешний диаметр вершин зубьев ведущей шестерни
             Bevel.Dae2 = Math.Round((Bevel.De2 + 2*Bevel.Mt*Math.Cos(Bevel.Delta2)), 2); // Внешний диаметр вершин зубьев ведомой шестерни
-            
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
 
             _context.Bevel.Add(Bevel);
             await _context.SaveChangesAsync();
