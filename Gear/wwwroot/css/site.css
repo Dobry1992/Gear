@@ -1,7 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-/*Карусель стартовой страницы Index*/
+﻿/*Карусель стартовой страницы Index*/
 
 .carousel-caption {
   background: rgba(23, 162, 184, 0.7);
@@ -40,8 +37,10 @@ a.navbar-brand {
 }
 
 /* Provide sufficient contrast against white background */
+
+
 a {
-  color: #0366d6;
+  color: white;
 }
 
 .btn-primary {
@@ -54,6 +53,10 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+nav {
+    opacity: 0.7;
 }
 
 /* Sticky footer styles
