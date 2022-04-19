@@ -8,9 +8,9 @@ namespace Gear.Pages.Admin
 {
     public class DeleteUserModel : PageModel
     {
-        private readonly Gear.Data.ApplicationDbContext _context;
+        private readonly Data.ApplicationDbContext _context;
 
-        public DeleteUserModel (Gear.Data.ApplicationDbContext context)
+        public DeleteUserModel (Data.ApplicationDbContext context)
         {
             _context = context;
         }

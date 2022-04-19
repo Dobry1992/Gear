@@ -9,9 +9,9 @@ namespace Gear.Pages.Admin
 {
     public class PolicyUserModel : PageModel
     {
-        private readonly Gear.Data.ApplicationDbContext _context;
+        private readonly Data.ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
-        public PolicyUserModel (Gear.Data.ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public PolicyUserModel (Data.ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;

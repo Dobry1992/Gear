@@ -10,9 +10,9 @@ namespace Gear.Pages.Bevels
     [Authorize(Roles = "Designer, Admin, Master")]
     public class DetailsModel : PageModel
     {
-        private readonly Gear.Data.GearContext _context;
+        private readonly Data.GearContext _context;
 
-        public DetailsModel(Gear.Data.GearContext context)
+        public DetailsModel(Data.GearContext context)
         {
             _context = context;
         }

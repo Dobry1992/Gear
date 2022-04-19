@@ -7,9 +7,9 @@ namespace Gear.Pages.Admin
 {
     public class CreateRoleModel : PageModel
     {
-        private readonly Gear.Data.ApplicationDbContext _context;
+        private readonly Data.ApplicationDbContext _context;
 
-        public CreateRoleModel(Gear.Data.ApplicationDbContext context)
+        public CreateRoleModel(Data.ApplicationDbContext context)
         {
             _context = context;
         }

@@ -8,9 +8,9 @@ namespace Gear.Pages.Spurs
 {
     public class IndexModel : PageModel
     {
-        private readonly Gear.Data.GearContext _context;
+        private readonly Data.GearContext _context;
 
-        public IndexModel(Gear.Data.GearContext context)
+        public IndexModel(Data.GearContext context)
         {
             _context = context;
         }

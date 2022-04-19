@@ -10,9 +10,9 @@ namespace Gear.Pages.Worms
     [Authorize(Roles = "Designer, Admin")]
     public class CreateModel : PageModel
     {
-        private readonly Gear.Data.GearContext _context;
+        private readonly Data.GearContext _context;
 
-        public CreateModel(Gear.Data.GearContext context)
+        public CreateModel(Data.GearContext context)
         {
             _context = context;
         }

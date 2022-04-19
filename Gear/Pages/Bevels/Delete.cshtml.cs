@@ -10,9 +10,9 @@ namespace Gear.Pages.Bevels
     [Authorize(Roles = "Designer, Admin")]
     public class DeleteModel : PageModel
     {
-        private readonly Gear.Data.GearContext _context;
+        private readonly Data.GearContext _context;
 
-        public DeleteModel(Gear.Data.GearContext context)
+        public DeleteModel(Data.GearContext context)
         {
             _context = context;
         }
