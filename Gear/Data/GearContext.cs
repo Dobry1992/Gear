@@ -14,6 +14,11 @@ namespace Gear.Data
         {
         }
 
+        public void Init()
+        {
+            Database.Migrate();
+        }
+
         public DbSet<Gear.Models.Spur> Spur { get; set; }
 
         public DbSet<Gear.Models.Worm> Worm { get; set; }

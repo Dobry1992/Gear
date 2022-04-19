@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Gear.Migrations
+namespace Gear.Data.Migrations
 {
     [DbContext(typeof(GearContext))]
-    [Migration("20220414190450_InitialCreate")]
+    [Migration("20220419194119_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

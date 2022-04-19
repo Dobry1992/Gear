@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Gear.Migrations
+namespace Gear.Data.Migrations
 {
     [DbContext(typeof(GearContext))]
     partial class GearContextModelSnapshot : ModelSnapshot

@@ -12,5 +12,10 @@ namespace Gear.Data
             : base(options)
         {
         }
+
+        public void Init()
+        {
+            Database.Migrate();
+        }
     }
 }
