@@ -32,19 +32,27 @@ namespace Gear.Pages.Bevels
                 return Page();
             }
 
-            Bevel.Zc = Math.Round((double)Math.Sqrt(Bevel.Z1*Bevel.Z1 + Bevel.Z2*Bevel.Z2), 2); // Число зубьев плоского колеса
-            Bevel.Re = Math.Round((0.5*Bevel.Mt*Bevel.Zc), 2); // Внешнее конусное расстояние
-            Bevel.B = Math.Round((0.3*Bevel.Re), 2); // Ширина зубчатого венца
-            Bevel.Rm = Math.Round((Bevel.Re - 0.5*Bevel.B), 2); // Среднее конусное расстояние
-            Bevel.Mm = Math.Round((Bevel.Mt*Bevel.Rm/Bevel.Re), 2); // Средний окружной модуль
-            Bevel.Dm1 = Math.Round((Bevel.Mm*Bevel.Z1), 2); // Средний делительный диаметр ведущей шестерни
-            Bevel.Dm2 = Math.Round((Bevel.Mm*Bevel.Z2), 2); // Средний делительный диаметр ведомой шестерни
-            Bevel.Delta1 = Math.Round((Math.Atan(Bevel.Z1/Bevel.Z2)), 2); // Угол делительного конуса
-            Bevel.Delta2 = Math.Round((Math.PI/2 - Bevel.Delta1), 2);
-            Bevel.De1 = Math.Round((Bevel.Mt*Bevel.Z1), 2); // Внешний делительный диаметр ведущей шестерни
-            Bevel.De2 = Math.Round((Bevel.Mt * Bevel.Z2), 2); // Внешний делительный диаметр ведомой шестерни
-            Bevel.Dae1 = Math.Round((Bevel.De1 + 2*Bevel.Mt*Math.Cos(Bevel.Delta1)), 2); // Внешний диаметр вершин зубьев ведущей шестерни
-            Bevel.Dae2 = Math.Round((Bevel.De2 + 2*Bevel.Mt*Math.Cos(Bevel.Delta2)), 2); // Внешний диаметр вершин зубьев ведомой шестерни
+            if(Bevel.Z1 / Bevel.Z2 != Math.PI / 2)
+            {
+                Bevel.Zc = Math.Round((double)Math.Sqrt(Bevel.Z1 * Bevel.Z1 + Bevel.Z2 * Bevel.Z2), 2); // Число зубьев плоского колеса
+                Bevel.Re = Math.Round((0.5 * Bevel.Mt * Bevel.Zc), 2); // Внешнее конусное расстояние
+                Bevel.B = Math.Round((0.3 * Bevel.Re), 2); // Ширина зубчатого венца
+                Bevel.Rm = Math.Round((Bevel.Re - 0.5 * Bevel.B), 2); // Среднее конусное расстояние
+                Bevel.Mm = Math.Round((Bevel.Mt * Bevel.Rm / Bevel.Re), 2); // Средний окружной модуль
+                Bevel.Dm1 = Math.Round((Bevel.Mm * Bevel.Z1), 2); // Средний делительный диаметр ведущей шестерни
+                Bevel.Dm2 = Math.Round((Bevel.Mm * Bevel.Z2), 2); // Средний делительный диаметр ведомой шестерни
+                Bevel.Delta1 = Math.Round((Math.Atan(Bevel.Z1 / Bevel.Z2)), 2); // Угол делительного конуса
+                Bevel.Delta2 = Math.Round((Math.PI / 2 - Bevel.Delta1), 2);
+                Bevel.De1 = Math.Round((Bevel.Mt * Bevel.Z1), 2); // Внешний делительный диаметр ведущей шестерни
+                Bevel.De2 = Math.Round((Bevel.Mt * Bevel.Z2), 2); // Внешний делительный диаметр ведомой шестерни
+                Bevel.Dae1 = Math.Round((Bevel.De1 + 2 * Bevel.Mt * Math.Cos(Bevel.Delta1)), 2); // Внешний диаметр вершин зубьев ведущей шестерни
+                Bevel.Dae2 = Math.Round((Bevel.De2 + 2 * Bevel.Mt * Math.Cos(Bevel.Delta2)), 2); // Внешний диаметр вершин зубьев ведомой шестерни
+            }
+            else
+            {
+                return Content("Передача с заданными параметрами невозможна!"); // условие
+            }
+            
 
             _context.Bevel.Add(Bevel);
             await _context.SaveChangesAsync();
