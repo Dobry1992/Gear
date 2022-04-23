@@ -27,8 +27,6 @@ namespace Gear.Pages.Spurs
 
         public async Task<IActionResult> OnPostAsync()
         {
-
-
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -36,7 +34,7 @@ namespace Gear.Pages.Spurs
 
             if (Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) > 1 || Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) < -1)
             {
-                return Content("Передача с заданными параметрами невозможна!"); // условие
+                return Page(); // условие
             }
             else
             {
