@@ -34,7 +34,7 @@ namespace Gear.Pages.Spurs
 
             if (Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) > 1 || Spur.Mn * (Spur.Z1 + Spur.Z2) / (2 * Spur.Aw) < -1)
             {
-                return Page(); // условие
+                return Content("Передача с заданными параметрами невозможна!"); // условие
             }
             else
             {
